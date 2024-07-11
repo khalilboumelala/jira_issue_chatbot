@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    <param name="plugin-icon">images/pluginIcon.png</param>
+    <param name="plugin-logo">images/bot-mini.png</param>
+  </plugin-info>
+
+  <!-- Add our i18n resource -->
+  <resource type="i18n" name="i18n" location="chatbot"/>
+
+  <!-- Add our web resources -->
+  <web-resource key="chatbot-resources" name="chatbot Web Resources">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="css/style.css" location="/css/style.css"/>
+    <resource type="download" name="js/script.js" location="/js/script.js"/>
+    <resource type="download" name="images/bot.ico" location="/images/bot.ico"/>
+    <resource type="download" name="images/" location="/images"/>
+    <context>atl.general</context>
+  </web-resource>
+
+  <!-- Web section for the chatbot (not required in this case) -->
+  <!--
+  <web-section name="Chatbotsection" i18n-name-key="chatbotsection.name" key="chatbotsection" location="my-item-link" weight="1000">
+    <description key="chatbotsection.description">The Chatbotsection Plugin</description>
+  </web-section>
+  -->
+
+  <!-- Web item for the chatbot (not required in this case) -->
+  <!--
+  <web-item name="myItem" i18n-name-key="my-item.name" key="my-item" section="system.top.navigation.bar" weight="1000">
+    <description key="my-item.description">The myItem Plugin</description>
+    <label key="my-item.label"/>
+    <link linkId="my-item-link"/>
+  </web-item>
+  -->
+
+  <!-- Web panel for the chatbot -->
+  <web-panel name="chatbotpanel" i18n-name-key="chatbotpanel.name" key="chatbotpanel" location="atl.footer" weight="1000">
+    <description key="chatbotpanel.description">The chatbotpanel Plugin</description>
+    <resource name="view" type="velocity" location="/templates/chatbot.vm"/>
+  </web-panel>
+
+  <!-- Include the web resources -->
+  <web-resource key="chatbot-init" name="Chatbot Init Resources">
+    <dependency>com.atlassian.plugin:chatbot-resources</dependency>
+    <resource type="download" name="init.js" location="/js/init.js"/>
+    <context>atl.general</context>
+  </web-resource>
+
+</atlassian-plugin>

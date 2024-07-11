@@ -1,0 +1,32 @@
+#chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+#chatbot-header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#chatbot-body {
+  padding: 10px;
+  height: calc(100% - 40px);
+  overflow-y: auto;
+}
+
+#chatbot-close {
+  float: right;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+}
